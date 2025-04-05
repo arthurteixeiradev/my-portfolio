@@ -1,13 +1,5 @@
-"use client";
-
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
+import { redirect } from 'next/navigation'
 
 export default function Home() {
-  return (
-    <div className="relative">
-      <Header />
-      <Hero />
-    </div>
-  );
+	return redirect('/home')
 }
