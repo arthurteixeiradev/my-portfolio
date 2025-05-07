@@ -36,10 +36,10 @@ export const Header = () => {
 			<header
 				className={cn(
 					'fixed top-4 left-0 right-0 z-10 flex justify-center items-center py-2',
-					'bg-transparent backdrop-blur-md rounded-full h-auto max-w-fit mx-auto border border-accent/20',
+					'bg-transparent backdrop-blur-md rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/20',
 				)}
 			>
-				<nav className='text-zinc-400 font-medium p-1'>
+				<nav className='font-medium p-1'>
 					<ul className='flex justify-center gap-1'>
 						{navItems.map(({ href, label }) => (
 							<li key={href}>
@@ -47,9 +47,9 @@ export const Header = () => {
 									href={href}
 									className={cn(
 										'rounded-full px-4 py-2 transition-all duration-300 border border-transparent',
-										'hover:text-zinc-200 dark:text-secondary/70 dark:hover:text-secondary hover:border-accent/20 hover:bg-zinc-900/50 dark:hover:bg-zinc-400/20',
+										'text-muted-foreground hover:text-primary hover:border-muted-foreground/20 hover:bg-muted-foreground/20',
 										pathname === href &&
-											'text-accent dark:text-secondary border-accent/20 dark:bg-zinc-400/20 bg-zinc-900/50',
+											'text-primary border-muted-foreground/20 bg-muted-foreground/20',
 									)}
 								>
 									{label}

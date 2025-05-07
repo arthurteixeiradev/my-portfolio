@@ -1,4 +1,6 @@
+import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 export const Hero = () => {
 	return (
@@ -34,15 +36,20 @@ export const Hero = () => {
 			</div>
 
 			{/* Hero content */}
-			<div className='relative z-10 text-center text-white'>
+			<div className='relative z-10 text-white text-center space-y-10'>
 				<h1
 					className={cn(
-						'text-5xl md:text-6xl font-bold tracking-tight',
+						'text-6xl md:text-7xl font-bold tracking-tight',
 						'leading-tight',
 					)}
 				>
-					Hi! I'm Arthur Teixeira
+					I'm Arthur Teixeira
+					<p className='text-5xl font-semibold'>Frontend Developer</p>
 				</h1>
+
+				<Button variant={'default'}>
+					<Link href='/about'>About me</Link>
+				</Button>
 			</div>
 
 			<style
