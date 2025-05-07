@@ -1,39 +1,42 @@
-"use client";
+'use client'
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from './ui/tooltip'
 
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+	const { setTheme, theme } = useTheme()
 
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+	return (
+		<TooltipProvider>
+			<Tooltip>
+				<TooltipTrigger asChild>
+					<Button
+						variant='ghost'
+						size='icon'
+						onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+						className='group absolute -right-14'
+					>
+						<div className='transform transition-transform duration-300 ease-in-out group-hover:scale-110'>
+							<Sun className='h-5 w-5 hidden dark:block fill-foreground' />
+							<Moon className='dark:hidden h-5 w-5 block fill-foreground' />
+						</div>
+						<span className='sr-only'>Toggle theme</span>
+					</Button>
+				</TooltipTrigger>
+				<TooltipContent>
+					<p>
+						{theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+					</p>
+				</TooltipContent>
+			</Tooltip>
+		</TooltipProvider>
+	)
 }
