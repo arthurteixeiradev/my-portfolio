@@ -47,7 +47,10 @@ export const Hero = () => {
 					<p className='text-5xl font-semibold'>Frontend Developer</p>
 				</h1>
 
-				<Button variant={'default'}>
+				<Button
+					variant={'default'}
+					className='rounded-full px-10'
+				>
 					<Link href='/about'>About me</Link>
 				</Button>
 			</div>
