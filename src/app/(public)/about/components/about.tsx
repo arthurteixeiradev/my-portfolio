@@ -1,5 +1,7 @@
 'use client'
 
+import { MediaInfo } from '@/components/media-info'
+
 export const About = () => {
 	return (
 		<main className='flex flex-col gap-24'>
@@ -11,6 +13,8 @@ export const About = () => {
 							mountain biker.
 						</h1>
 					</div>
+
+					<MediaInfo />
 
 					<div className='space-y-4 max-w-5xl'>
 						<p className='text-base text-muted-foreground'>
