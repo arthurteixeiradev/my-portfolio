@@ -45,7 +45,7 @@ export const Header = () => {
       <header
         className={cn(
           'fixed top-4 left-0 right-0 z-10 flex justify-center items-center py-2',
-          'bg-transparent backdrop-blur-md rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/20',
+          'bg-transparent backdrop-blur-xl rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/20',
         )}
       >
         <TooltipProvider>
