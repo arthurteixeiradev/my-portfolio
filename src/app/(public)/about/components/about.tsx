@@ -5,7 +5,7 @@ import { MediaInfo } from '@/components/media-info'
 export const About = () => {
   return (
     <main className='flex flex-col gap-24'>
-      <section className='mx-40 my-36'>
+      <section className='mx-40 mt-36'>
         <div className='flex flex-col gap-8'>
           <div className='space-y-2 max-w-5xl'>
             <h1 className='text-foreground text-6xl font-bold'>

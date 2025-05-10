@@ -1,15 +1,21 @@
+'use client'
+
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-
+import { usePathname } from 'next/navigation'
 export default function PageLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode
+  children: React.ReactNode
 }) {
-	return (
-		<div className='relative min-h-screen'>
-			<Header />
+  const pathname = usePathname()
+  return (
+    <div className='grid relative min-h-screen gap-24'>
+      <Header />
 
-			{children}
-		</div>
-	)
+      {children}
+
+      {pathname !== '/home' && <Footer />}
+    </div>
+  )
 }
