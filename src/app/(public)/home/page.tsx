@@ -6,16 +6,16 @@ import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
 
 export default function HomePage() {
-	const { setTheme } = useTheme()
+  const { setTheme } = useTheme()
 
-	useEffect(() => {
-		setTheme('dark')
-	}, [])
+  useEffect(() => {
+    setTheme('dark')
+  }, [])
 
-	return (
-		<div className='relative min-h-dvh'>
-			<MouseMoveEffect />
-			<Hero />
-		</div>
-	)
+  return (
+    <div className='relative min-h-dvh'>
+      <MouseMoveEffect />
+      <Hero />
+    </div>
+  )
 }
