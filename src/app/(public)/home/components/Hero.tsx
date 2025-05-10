@@ -1,3 +1,4 @@
+import { MediaInfo } from '@/components/media-info'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
@@ -46,6 +47,10 @@ export const Hero = () => {
 					I'm Arthur Teixeira
 					<p className='text-5xl font-semibold'>Frontend Developer</p>
 				</h1>
+
+				<div className='flex justify-center items-center'>
+					<MediaInfo />
+				</div>
 
 				<Button
 					variant={'default'}
