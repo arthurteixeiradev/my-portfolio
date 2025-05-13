@@ -10,8 +10,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from './ui/tooltip'
+import { cn } from '@/lib/utils'
 
-export function ModeToggle() {
+type ModeToggleProps = {
+  isHome: boolean
+}
+
+export function ModeToggle({ isHome }: ModeToggleProps) {
   const { setTheme, theme } = useTheme()
 
   return (
@@ -22,7 +27,7 @@ export function ModeToggle() {
             variant='ghost'
             size='icon'
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className='group absolute -right-[550px]'
+            className={cn('group w-[50px] h-[50px]', isHome && 'hidden')}
           >
             <div className='transform transition-transform duration-300 ease-in-out group-hover:scale-110'>
               <Sun className='h-5 w-5 hidden dark:block fill-foreground' />
