@@ -37,7 +37,7 @@ export const About = () => {
             </p>
             <p className='text-base text-muted-foreground'>
               I believe front-end development is not just about writing code —
-              it's about creating experiences that connect people and ideas..
+              it's about creating experiences that connect people and ideas.
             </p>
           </div>
         </div>
