@@ -1,0 +1,124 @@
+import { TechStackType } from '@/types/TechStackType'
+
+export const techStack: TechStackType[] = [
+  {
+    title: 'Javascript',
+    alt: 'Javascript',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+    site: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  },
+  {
+    title: 'Typescript',
+    alt: 'Typescript',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    site: 'https://www.typescriptlang.org/',
+  },
+  {
+    title: 'Python',
+    alt: 'Python',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+    site: 'https://www.python.org/',
+  },
+  {
+    title: 'Java',
+    alt: 'Java',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
+    site: 'https://www.oracle.com/java/',
+  },
+  {
+    title: 'React',
+    alt: 'React',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    site: 'https://reactjs.org/',
+  },
+  {
+    title: 'Zustand',
+    alt: 'Zustand',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zustand/zustand-original.svg',
+    site: 'https://zustand-demo.pmnd.rs/',
+  },
+  {
+    title: 'NextJS',
+    alt: 'NextJS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+    site: 'https://nextjs.org/',
+  },
+  {
+    title: 'shadcn/ui',
+    alt: 'shadcn/ui',
+    src: 'https://ui.shadcn.com/favicon.ico',
+    site: 'https://ui.shadcn.com/',
+  },
+  {
+    title: 'TailwindCSS',
+    alt: 'TailwindCSS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    site: 'https://tailwindcss.com/',
+  },
+  {
+    title: 'CSS',
+    alt: 'CSS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+    site: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  },
+  {
+    title: 'HTML',
+    alt: 'HTML',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+    site: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+  },
+  {
+    title: 'Bootstrap',
+    alt: 'Bootstrap',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg',
+    site: 'https://getbootstrap.com/',
+  },
+  {
+    title: 'NodeJS',
+    alt: 'NodeJS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+    site: 'https://nodejs.org/',
+  },
+  {
+    title: 'Git',
+    alt: 'Git',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+    site: 'https://git-scm.com/',
+  },
+  {
+    title: 'NPM',
+    alt: 'NPM',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original.svg',
+    site: 'https://www.npmjs.com/',
+  },
+  {
+    title: 'ESLint',
+    alt: 'ESLint',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg',
+    site: 'https://eslint.org/',
+  },
+  {
+    title: 'Prettier',
+    alt: 'Prettier',
+    src: 'https://prettier.io/icon.png',
+    site: 'https://prettier.io/',
+  },
+  {
+    title: 'Biome',
+    alt: 'Biome',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/biome/biome-original.svg',
+    site: 'https://biomejs.dev/',
+  },
+  {
+    title: 'VSCode',
+    alt: 'VSCode',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+    site: 'https://code.visualstudio.com/',
+  },
+  {
+    title: 'Figma',
+    alt: 'Figma',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+    site: 'https://www.figma.com/',
+  },
+]
