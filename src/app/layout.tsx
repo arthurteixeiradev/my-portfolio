@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const font = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 })
 
@@ -22,7 +22,7 @@ export default function RootLayout({
       lang='en'
       className='no-scrollbar'
     >
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${font.className} antialiased`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

@@ -10,7 +10,7 @@ export default function PageLayout({
 }) {
   const pathname = usePathname()
   return (
-    <div className='grid relative min-h-screen'>
+    <div className='grid relative min-h-screen gap-24'>
       <Header />
 
       {children}
