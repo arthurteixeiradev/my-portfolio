@@ -42,7 +42,10 @@ export const Header = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href={'/'}>
+                <Link
+                  href={'/'}
+                  aria-label='Back to home'
+                >
                   <Icons.logo />
                 </Link>
               </TooltipTrigger>
