@@ -5,7 +5,7 @@ export default function PageLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className='grid relative min-h-screen bg-background'>
+    <div className='grid min-h-screen bg-background px-16 2xl:px-0'>
       {children}
 
       <Footer />
