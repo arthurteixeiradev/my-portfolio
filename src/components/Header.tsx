@@ -18,7 +18,7 @@ export const Header = () => {
 
   const navItems = [
     { href: '/about', label: 'About' },
-    { href: '/Projects', label: 'Projects' },
+    { href: '/projects', label: 'Projects' },
     { href: '/stack', label: 'Stack' },
     { href: '/contact', label: 'Contact' },
   ]
@@ -29,13 +29,7 @@ export const Header = () => {
       <header>
         <div
           className={cn(
-            'fixed top-0 left-0 w-full h-1 z-50 transition-all duration-500 ease-in-out',
-          )}
-        ></div>
-
-        <div
-          className={cn(
-            'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-8',
+            'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16 2xl:px-8',
             pathname === '/' && 'pr-[82px]',
           )}
         >
