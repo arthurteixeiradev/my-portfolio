@@ -1,4 +1,3 @@
-import { MouseMoveEffect } from '@/components/MouseMoveEffect'
 import {
   Tooltip,
   TooltipContent,
