@@ -30,7 +30,6 @@ export const Header = () => {
         <div
           className={cn(
             'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16 2xl:px-8',
-            pathname === '/' && 'pr-[82px]',
           )}
         >
           <TooltipProvider>
@@ -39,6 +38,9 @@ export const Header = () => {
                 <Link
                   href={'/'}
                   aria-label='Back to home'
+                  className={cn(
+                    'hover:bg-accent dark:hover:bg-accent/50 rounded-md transition-all',
+                  )}
                 >
                   <Icons.logo />
                 </Link>
@@ -52,7 +54,7 @@ export const Header = () => {
           <div
             className={cn(
               'flex justify-center items-center py-2',
-              'bg-transparent backdrop-blur-xl rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/20',
+              'bg-transparent backdrop-blur-xl rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/15',
             )}
           >
             <nav className='font-medium p-1'>
@@ -63,9 +65,9 @@ export const Header = () => {
                       href={href}
                       className={cn(
                         'rounded-full px-4 py-2 transition-all duration-300 border border-transparent',
-                        'text-muted-foreground hover:text-primary hover:border-muted-foreground/20 hover:bg-muted-foreground/20',
+                        'text-muted-foreground hover:text-primary hover:border-muted-foreground/15 hover:bg-muted-foreground/15',
                         pathname === href &&
-                          'text-primary border-muted-foreground/20 bg-muted-foreground/20',
+                          'text-primary border-muted-foreground/15 bg-muted-foreground/15',
                       )}
                     >
                       {label}
@@ -75,7 +77,7 @@ export const Header = () => {
               </ul>
             </nav>
           </div>
-          <ModeToggle isHome={pathname === '/'} />
+          <ModeToggle />
         </div>
       </header>
     </>

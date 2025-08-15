@@ -5,7 +5,7 @@ type IconProps = HTMLAttributes<SVGElement>
 export const Icons = {
   logo: (props: IconProps) => (
     <svg
-      className='dark:fill-white fill-black'
+      className='fill-foreground transform duration-300 ease-in-out hover:scale-110'
       width={50}
       height={50}
       viewBox='0 0 500 500'
