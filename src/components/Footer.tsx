@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className='flex flex-col items-center justify-center gap-4 pt-24 pb-16'>
       <MediaInfo />
-      <p className='text-xs text-muted-foreground'>©2025 Arthur Teixeira</p>
+      <p className='text-xs text-gradient-br'>©2025 Arthur Teixeira</p>
     </footer>
   )
 }
