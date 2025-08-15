@@ -1,5 +1,3 @@
-'use client'
-
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
@@ -12,11 +10,7 @@ import {
 } from './ui/tooltip'
 import { cn } from '@/lib/utils'
 
-type ModeToggleProps = {
-  isHome: boolean
-}
-
-export function ModeToggle({ isHome }: ModeToggleProps) {
+export function ModeToggle() {
   const { setTheme, theme } = useTheme()
 
   return (
@@ -27,7 +21,7 @@ export function ModeToggle({ isHome }: ModeToggleProps) {
             variant='ghost'
             size='icon'
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className={cn('group w-[50px] h-[50px]', isHome && 'hidden')}
+            className={cn('group w-[50px] h-[50px]')}
           >
             <div className='transform transition-transform duration-300 ease-in-out group-hover:scale-110'>
               <Sun className='h-5 w-5 hidden dark:block fill-foreground' />

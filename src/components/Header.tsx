@@ -30,7 +30,6 @@ export const Header = () => {
         <div
           className={cn(
             'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16 2xl:px-8',
-            pathname === '/' && '2xl:pr-[82px] pr-[114px]',
           )}
         >
           <TooltipProvider>
@@ -39,6 +38,9 @@ export const Header = () => {
                 <Link
                   href={'/'}
                   aria-label='Back to home'
+                  className={cn(
+                    'hover:bg-accent dark:hover:bg-accent/50 rounded-md transition-all',
+                  )}
                 >
                   <Icons.logo />
                 </Link>
@@ -75,7 +77,7 @@ export const Header = () => {
               </ul>
             </nav>
           </div>
-          <ModeToggle isHome={pathname === '/'} />
+          <ModeToggle />
         </div>
       </header>
     </>
