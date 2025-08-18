@@ -5,9 +5,9 @@ import { MediaInfo } from '@/components/media-info'
 
 export const About = () => {
   return (
-    <section className='flex flex-col gap-16 mx-auto mt-40 max-w-5xl'>
-      <div className='space-y-10'>
-        <h1 className='text-6xl text-gradient font-normal'>
+    <section className='flex flex-col gap-10 mx-auto mt-40 max-w-5xl'>
+      <div className='space-y-6'>
+        <h1 className='text-6xl text-gradient'>
           I'm Arthur Teixeira — a frontend developer focused on crafting
           well-designed digital experiences with attention to detail,
           aesthetics, and usability.
@@ -39,7 +39,7 @@ export const About = () => {
           <HoverCardInfo
             title='Next.js'
             description='The React Framework – created and maintained by @vercel.'
-            icon='https://github.com/vercel.png'
+            icon='https://github.com/nextjs.png'
             link='https://nextjs.org/'
           />
           , and{' '}
@@ -59,8 +59,8 @@ export const About = () => {
         </p>
       </div>
 
-      <div className='flex flex-col items-start gap-6'>
-        <p className='text-2xl font-normal text-gradient-br'>Career</p>
+      <div className='flex flex-col items-start gap-6 mt-6'>
+        <p className='text-2xl text-gradient-br'>Career</p>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col gap-1'>
             <p className='text-base font-semibold'>

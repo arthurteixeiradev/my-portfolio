@@ -127,10 +127,10 @@
 
 @layer utilities {
   .text-gradient {
-    @apply dark:bg-gradient-to-r dark:from-foreground dark:via-foreground/80 dark:to-foreground/30 dark:bg-clip-text dark:text-transparent;
+    @apply pb-2 dark:bg-gradient-to-r dark:from-foreground dark:via-foreground/80 dark:to-foreground/30 dark:bg-clip-text dark:text-transparent;
   }
   .text-gradient-br {
-    @apply dark:bg-gradient-to-br dark:from-foreground dark:via-foreground/80 dark:to-foreground/30 dark:bg-clip-text dark:text-transparent;
+    @apply dark:bg-gradient-to-br pb-2 dark:from-foreground dark:via-foreground/80 dark:to-foreground/30 dark:bg-clip-text dark:text-transparent;
   }
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

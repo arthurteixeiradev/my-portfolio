@@ -12,9 +12,7 @@ export const Stack = () => {
   return (
     <section className='flex flex-col gap-12 mx-auto mt-40 max-w-[1345px]'>
       <div className='space-y-8 flex flex-col items-center'>
-        <h1 className='text-6xl text-gradient font-normal bg-gradient-to-r'>
-          Stack
-        </h1>
+        <h1 className='text-6xl text-gradient bg-gradient-to-r'>Stack</h1>
         <p className='text-base text-muted-foreground'>
           Technologies and tools I master to turn ideas into real projects.
         </p>
