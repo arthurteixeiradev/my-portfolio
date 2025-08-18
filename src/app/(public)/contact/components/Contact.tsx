@@ -1,0 +1,169 @@
+'use client'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { useForm } from 'react-hook-form'
+import { Info, LoaderCircle, Mail } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import emailjs from '@emailjs/browser'
+import { Textarea } from '@/components/ui/textarea'
+import { toast } from 'sonner'
+import { useTransition } from 'react'
+
+const contactSchema = z.object({
+  name: z.string().min(2, 'The name must be at least 2 characters long'),
+  email: z.string().email('Invalid email'),
+  message: z
+    .string()
+    .min(10, 'The message must be at least 10 characters long'),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
+
+export const Contact = () => {
+  const [isPending, startTransition] = useTransition()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  })
+
+  const onSubmit = (data: ContactFormData) => {
+    startTransition(async () => {
+      try {
+        const templateParams = {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }
+
+        await emailjs.send(
+          'service_q0btofy',
+          'template_g8634gq',
+          templateParams,
+          'AF5o8zrRv1kUM4X0m',
+        )
+
+        toast.success('Message sent successfully!')
+        reset()
+      } catch (err) {
+        toast.error('Something went wrong. Please try again.')
+      }
+    })
+  }
+
+  return (
+    <section className='flex flex-col gap-16 mx-auto mt-40 max-w-5xl'>
+      <div className='space-y-6'>
+        <h1 className='text-6xl text-gradient max-w-max font-semibold'>
+          Let's talk!
+        </h1>
+        <p className='text-base text-muted-foreground'>
+          I'm really interested in what you have in mind. Fill out the form, and
+          let's take the next step together.
+        </p>
+      </div>
+
+      <div className='flex flex-col gap-4 max-w-xl'>
+        <p className='text-xl text-gradient-br max-w-max font-semibold'>
+          Send an email
+        </p>
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex flex-col gap-8'
+        >
+          <div className='flex flex-col gap-2'>
+            <Label
+              htmlFor='name'
+              className='text-base text-muted-foreground'
+            >
+              Name
+            </Label>
+            <Input
+              id='name'
+              type='text'
+              aria-invalid={!!errors.name}
+              placeholder='Your name'
+              {...register('name')}
+            />
+            {errors.name && (
+              <p className='text-red-500 text-sm flex items-center gap-1'>
+                <Info size={16} />
+                {errors.name.message}
+              </p>
+            )}
+          </div>
+
+          <div className='flex flex-col gap-2'>
+            <Label
+              htmlFor='email'
+              className='text-base text-muted-foreground'
+            >
+              E-mail
+            </Label>
+            <Input
+              id='email'
+              type='email'
+              aria-invalid={!!errors.name}
+              placeholder='Your e-mail'
+              {...register('email')}
+            />
+            {errors.email && (
+              <p className='text-red-500 text-sm flex items-center gap-1'>
+                <Info size={16} /> {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          <div className='flex flex-col gap-2'>
+            <Label
+              htmlFor='Message'
+              className='text-base text-muted-foreground'
+            >
+              Message
+            </Label>
+            <Textarea
+              id='Message'
+              aria-invalid={!!errors.name}
+              placeholder='How can I help you?'
+              {...register('message')}
+            />
+            {errors.message && (
+              <p className='text-red-500 text-sm flex items-center gap-1'>
+                <Info size={16} />
+                {errors.message.message}
+              </p>
+            )}
+          </div>
+
+          <Button
+            type='submit'
+            className={cn(
+              'rounded-full px-10 cursor-pointer max-w-48',
+              'text-foreground',
+              'border border-muted-foreground/15 bg-muted-foreground/15 hover:bg-muted-foreground/30',
+            )}
+            disabled={Object.keys(errors).length > 0 || isPending}
+          >
+            <Mail />
+            {isPending ? (
+              <>
+                <LoaderCircle className='animate-spin' /> 'Sending...'
+              </>
+            ) : (
+              'Send e-mail'
+            )}
+          </Button>
+        </form>
+      </div>
+    </section>
+  )
+}
