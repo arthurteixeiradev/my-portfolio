@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Header } from '@/components/Header'
+import { Toaster } from '@/components/ui/sonner'
 
 const font = Inter({
   variable: '--font-inter',
@@ -32,6 +33,10 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Toaster
+            position='top-right'
+            richColors
+          />
         </ThemeProvider>
       </body>
     </html>
