@@ -29,7 +29,7 @@ export const Header = () => {
       <header>
         <div
           className={cn(
-            'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16 2xl:px-8',
+            'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16',
           )}
         >
           <TooltipProvider>

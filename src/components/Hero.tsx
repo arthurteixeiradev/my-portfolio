@@ -40,7 +40,7 @@ export const Hero = () => {
         <h1
           className={cn(
             'text-6xl text-gradient md:text-7xl font-bold tracking-tight',
-            'leading-tight',
+            'leading-tight cursor-default',
           )}
         >
           I'm Arthur Teixeira
