@@ -188,3 +188,7 @@
     transform: scale(0.95);
   }
 }
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;}

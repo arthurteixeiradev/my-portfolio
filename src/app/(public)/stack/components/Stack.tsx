@@ -1,7 +1,6 @@
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { techStack } from '@/data/techStack'
@@ -32,24 +31,22 @@ export const Stack = () => {
               'transition-all duration-150',
             )}
           >
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className='flex flex-1 flex-col items-center justify-center gap-2'>
-                    <img
-                      alt={tech.alt}
-                      src={tech.src}
-                      width={32}
-                      height={32}
-                    />
-                    <p className='text-sm'>{tech.title}</p>
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Open {tech.title} site</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className='flex flex-1 flex-col items-center justify-center gap-2'>
+                  <img
+                    alt={tech.alt}
+                    src={tech.src}
+                    width={32}
+                    height={32}
+                  />
+                  <p className='text-sm'>{tech.title}</p>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Open {tech.title} site</p>
+              </TooltipContent>
+            </Tooltip>
           </Link>
         ))}
       </div>

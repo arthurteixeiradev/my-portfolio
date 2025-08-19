@@ -3,14 +3,8 @@
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ModeToggle } from './ModeToggle'
 import { Icons } from './ui/icons'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './ui/tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 import { ProgressBar } from './ProgressBar'
 import {
   Sheet,
@@ -22,6 +16,7 @@ import {
 } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
+import { AnimatedThemeToggler } from './magicui/animated-theme-toggler'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -44,24 +39,22 @@ export const Header = () => {
             pathname === '/' && 'bg-transparent',
           )}
         >
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={'/'}
-                  aria-label='Back to home'
-                  className={cn(
-                    'hover:bg-accent dark:hover:bg-accent/50 rounded-md transition-all',
-                  )}
-                >
-                  <Icons.logo />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Back to home</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={'/'}
+                aria-label='Back to home'
+                className={cn(
+                  'hover:bg-accent dark:hover:bg-accent/50 rounded-md transition-all',
+                )}
+              >
+                <Icons.logo />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Back to home</p>
+            </TooltipContent>
+          </Tooltip>
 
           <div
             className={cn(
@@ -91,7 +84,7 @@ export const Header = () => {
           </div>
 
           <div className='hidden md:block'>
-            <ModeToggle />
+            <AnimatedThemeToggler />
           </div>
 
           <div className='md:hidden'>
@@ -133,7 +126,7 @@ export const Header = () => {
                     </SheetClose>
                   ))}
                 </nav>
-                <ModeToggle disableTooltip />
+                <AnimatedThemeToggler disableTooltip />
               </SheetContent>
             </Sheet>
           </div>
