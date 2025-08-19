@@ -10,8 +10,29 @@ import {
 } from './ui/tooltip'
 import { cn } from '@/lib/utils'
 
-export function ModeToggle() {
+type ModeToggleProps = {
+  disableTooltip?: boolean
+}
+
+export function ModeToggle({ disableTooltip }: ModeToggleProps) {
   const { setTheme, theme } = useTheme()
+
+  if (disableTooltip) {
+    return (
+      <Button
+        variant='ghost'
+        size='icon'
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        className={cn('group ml-3')}
+      >
+        <div className='transform transition-transform duration-300 ease-in-out group-hover:scale-110'>
+          <Sun className='h-5 w-5 hidden dark:block fill-foreground' />
+          <Moon className='dark:hidden h-5 w-5 block fill-foreground' />
+        </div>
+        <span className='sr-only'>Toggle theme</span>
+      </Button>
+    )
+  }
 
   return (
     <TooltipProvider>

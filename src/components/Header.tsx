@@ -133,7 +133,7 @@ export const Header = () => {
                     </SheetClose>
                   ))}
                 </nav>
-                <ModeToggle />
+                <ModeToggle disableTooltip />
               </SheetContent>
             </Sheet>
           </div>
