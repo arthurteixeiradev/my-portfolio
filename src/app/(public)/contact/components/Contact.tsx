@@ -60,19 +60,19 @@ export const Contact = () => {
   }
 
   return (
-    <section className='flex flex-col gap-16 mx-auto mt-40 max-w-5xl'>
+    <section className='flex flex-col gap-16 mx-auto mt-16 sm:mt-40 max-w-5xl'>
       <div className='space-y-6'>
-        <h1 className='text-6xl text-gradient max-w-max font-semibold'>
+        <h1 className='text-[32px] sm:text-6xl text-gradient max-w-max font-semibold'>
           Let's talk!
         </h1>
-        <p className='text-base text-muted-foreground'>
+        <p className='text-sm sm:text-base text-muted-foreground'>
           I'm really interested in what you have in mind. Fill out the form, and
           let's take the next step together.
         </p>
       </div>
 
       <div className='flex flex-col gap-4 max-w-xl'>
-        <p className='text-xl text-gradient-br max-w-max font-semibold'>
+        <p className='text-lg sm:text-xl text-gradient-br max-w-max font-semibold'>
           Send an email
         </p>
 
@@ -83,7 +83,7 @@ export const Contact = () => {
           <div className='flex flex-col gap-2'>
             <Label
               htmlFor='name'
-              className='text-base text-muted-foreground'
+              className='text-sm sm:text-base text-muted-foreground'
             >
               Name
             </Label>
@@ -105,7 +105,7 @@ export const Contact = () => {
           <div className='flex flex-col gap-2'>
             <Label
               htmlFor='email'
-              className='text-base text-muted-foreground'
+              className='text-sm sm:text-base text-muted-foreground'
             >
               E-mail
             </Label>
@@ -126,7 +126,7 @@ export const Contact = () => {
           <div className='flex flex-col gap-2'>
             <Label
               htmlFor='Message'
-              className='text-base text-muted-foreground'
+              className='text-sm sm:text-base text-muted-foreground'
             >
               Message
             </Label>
@@ -147,9 +147,10 @@ export const Contact = () => {
           <Button
             type='submit'
             className={cn(
-              'rounded-full px-10 cursor-pointer max-w-48',
+              'rounded-full px-10 cursor-pointer w-48',
               'text-foreground',
               'border border-muted-foreground/15 bg-muted-foreground/15 hover:bg-muted-foreground/30',
+              'mx-auto sm:mx-0',
             )}
             disabled={Object.keys(errors).length > 0 || isPending}
           >

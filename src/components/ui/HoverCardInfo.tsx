@@ -4,9 +4,11 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 type HoverCardInfoProps = {
+  table?: boolean
   placeholder?: string
   title: string
   description: string
@@ -20,6 +22,7 @@ export function HoverCardInfo({
   description,
   icon,
   link,
+  table,
 }: HoverCardInfoProps) {
   return (
     <HoverCard>
@@ -27,7 +30,10 @@ export function HoverCardInfo({
         <Link
           href={link}
           aria-label={`Go to ${title}`}
-          className='text-foreground hover:text-teal-600 transition-colors duration-200'
+          className={cn(
+            'text-sm sm:text-base text-foreground hover:text-teal-600 transition-colors duration-200',
+            table && 'sm:text-sm',
+          )}
         >
           {placeholder ? placeholder : title}
         </Link>

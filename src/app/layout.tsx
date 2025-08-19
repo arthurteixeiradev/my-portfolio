@@ -12,6 +12,8 @@ const font = Inter({
 
 export const metadata: Metadata = {
   title: 'Arthur Teixeira | Portfolio',
+  description:
+    'Portfolio of Arthur Teixeira, a frontend developer specialized in Next.js, React, and modern interfaces.',
 }
 
 export default function RootLayout({
