@@ -154,13 +154,14 @@ export const Contact = () => {
             )}
             disabled={Object.keys(errors).length > 0 || isPending}
           >
-            <Mail />
             {isPending ? (
               <>
                 <LoaderCircle className='animate-spin' /> Sending...
               </>
             ) : (
-              'Send e-mail'
+              <>
+                <Mail /> Send e-mail
+              </>
             )}
           </Button>
         </form>
