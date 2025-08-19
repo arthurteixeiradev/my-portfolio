@@ -157,7 +157,7 @@ export const Contact = () => {
             <Mail />
             {isPending ? (
               <>
-                <LoaderCircle className='animate-spin' /> 'Sending...'
+                <LoaderCircle className='animate-spin' /> Sending...
               </>
             ) : (
               'Send e-mail'
