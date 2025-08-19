@@ -2,11 +2,13 @@ import { MediaInfo } from '@/components/media-info'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { ShineBorder } from './magicui/shine-border'
+import { Meteors } from './magicui/meteors'
 
 export const Hero = () => {
   return (
     <section className='relative flex items-center justify-center min-h-screen overflow-hidden'>
-      <div className='absolute inset-0'>
+      <div className='absolute inset-0 z-0'>
         <div
           className='absolute inset-0'
           style={{
@@ -34,17 +36,23 @@ export const Hero = () => {
             animation: 'gentle-pulse 22s ease-in-out infinite reverse',
           }}
         ></div>
+        <Meteors
+          number={30}
+          maxDuration={15}
+        />
       </div>
 
-      <div className='relative z-10 text-foreground text-center space-y-10'>
+      <div className='relative z-10 text-foreground text-center space-y-10 px-6 sm:px-0'>
         <h1
           className={cn(
-            'text-6xl text-gradient md:text-7xl font-bold tracking-tight',
+            'text-4xl text-gradient md:text-7xl font-bold tracking-tight',
             'leading-tight cursor-default',
           )}
         >
           I'm Arthur Teixeira
-          <p className='text-5xl font-semibold'>Frontend Developer</p>
+          <p className='text-2xl md:text-5xl font-semibold'>
+            Frontend Developer
+          </p>
         </h1>
 
         <div className='flex justify-center items-center'>
@@ -55,11 +63,12 @@ export const Hero = () => {
           <Button
             variant={'default'}
             className={cn(
-              'rounded-full px-10 cursor-pointer',
+              'rounded-full px-10 cursor-pointer relative',
               'text-foreground',
-              'border border-muted-foreground/15 bg-muted-foreground/15 hover:bg-muted-foreground/30',
+              'bg-muted-foreground/15 hover:bg-muted-foreground/30',
             )}
           >
+            <ShineBorder shineColor={'var(--muted-foreground)'} />
             Read more about me
           </Button>
         </Link>

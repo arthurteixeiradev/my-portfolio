@@ -12,6 +12,16 @@ import {
   TooltipTrigger,
 } from './ui/tooltip'
 import { ProgressBar } from './ProgressBar'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button'
+import { Menu } from 'lucide-react'
 
 export const Header = () => {
   const pathname = usePathname()
@@ -29,7 +39,9 @@ export const Header = () => {
       <header>
         <div
           className={cn(
-            'flex items-center justify-between fixed top-6 left-0 right-0 z-50 px-16',
+            'flex items-center w-full justify-between fixed sm:top-6 z-50 px-4 sm:px-8 md:px-16',
+            'bg-background sm:bg-transparent',
+            pathname === '/' && 'bg-transparent',
           )}
         >
           <TooltipProvider>
@@ -53,7 +65,7 @@ export const Header = () => {
 
           <div
             className={cn(
-              'flex justify-center items-center py-2',
+              'hidden md:flex justify-center items-center py-2',
               'bg-transparent backdrop-blur-xl rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/15',
             )}
           >
@@ -77,7 +89,54 @@ export const Header = () => {
               </ul>
             </nav>
           </div>
-          <ModeToggle />
+
+          <div className='hidden md:block'>
+            <ModeToggle />
+          </div>
+
+          <div className='md:hidden'>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant='default'
+                  size='icon'
+                  className={cn(
+                    'w-full py-1 px-3 max-h-7 text-primary',
+                    'rounded-full border border-muted-foreground/15 bg-muted-foreground/15 hover:bg-muted-foreground/30',
+                  )}
+                >
+                  Menu <Menu className='h-6 w-6' />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side='right'
+                className='max-w-64'
+              >
+                <SheetHeader>
+                  <SheetTitle className='sr-only'>Menu</SheetTitle>
+                </SheetHeader>
+                <nav className='flex flex-col gap-2 px-3'>
+                  {navItems.map(({ href, label }) => (
+                    <SheetClose
+                      asChild
+                      key={href}
+                    >
+                      <Link
+                        href={href}
+                        className={cn(
+                          'px-2 py-1 rounded-md transition-colors text-muted-foreground',
+                          pathname === href && 'text-primary',
+                        )}
+                      >
+                        {label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <ModeToggle />
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
     </>
