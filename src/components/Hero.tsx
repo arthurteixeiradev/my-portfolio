@@ -37,7 +37,7 @@ export const Hero = () => {
           }}
         ></div>
         <Meteors
-          number={30}
+          number={50}
           maxDuration={15}
         />
       </div>
