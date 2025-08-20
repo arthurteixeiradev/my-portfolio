@@ -1,49 +1,52 @@
 'use client'
 
 import { Moon, Sun } from 'lucide-react'
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import { cn } from '@/lib/utils'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { Button } from '../ui/button'
 import { useTheme } from 'next-themes'
 
-type props = {
+type Props = {
   disableTooltip?: boolean
 }
 
-export const AnimatedThemeToggler = ({ disableTooltip }: props) => {
+export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
   const { setTheme, theme } = useTheme()
   const buttonRef = useRef<HTMLButtonElement | null>(null)
-  const changeTheme = async () => {
+
+  const changeTheme = useCallback(() => {
     if (!buttonRef.current) return
 
-    await document.startViewTransition(() => {
+    const transition = document.startViewTransition(() => {
       setTheme(theme === 'light' ? 'dark' : 'light')
-    }).ready
+    })
 
-    const { top, left, width, height } =
-      buttonRef.current.getBoundingClientRect()
-    const y = top + height / 2
-    const x = left + width / 2
+    transition.ready.then(() => {
+      if (!buttonRef.current) return
+      const { top, left, width, height } =
+        buttonRef.current.getBoundingClientRect()
+      const y = top + height / 2
+      const x = left + width / 2
+      const right = window.innerWidth - left
+      const bottom = window.innerHeight - top
+      const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
 
-    const right = window.innerWidth - left
-    const bottom = window.innerHeight - top
-    const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
-
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRad}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: 700,
-        easing: 'ease-in-out',
-        pseudoElement: '::view-transition-new(root)',
-      },
-    )
-  }
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRad}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 700,
+          easing: 'ease-in-out',
+          pseudoElement: '::view-transition-new(root)',
+        },
+      )
+    })
+  }, [theme, setTheme])
 
   const button = (
     <Button

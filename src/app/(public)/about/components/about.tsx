@@ -6,8 +6,8 @@ export const About = () => {
     <section className='flex flex-col gap-10 mx-auto mt-16 sm:mt-40 max-w-5xl'>
       <div className='space-y-6'>
         <h1 className='text-[32px] sm:text-6xl text-gradient font-semibold'>
-          Arthur Teixeira — frontend developer focused on creating digital
-          experiences with attention to detail, design, and usability.
+          I'm Arthur — a frontend developer, computer science student, music
+          enthusiast and investor.
         </h1>
 
         <MediaInfo />
@@ -15,8 +15,8 @@ export const About = () => {
 
       <div className='space-y-4'>
         <p className='text-sm sm:text-base text-muted-foreground'>
-          I'm Arthur Teixeira, a front-end developer passionate about turning
-          ideas into real, beautiful, and functional interfaces.
+          My name is Arthur Teixeira, a front-end developer passionate about
+          turning ideas into real, beautiful, and functional interfaces.
         </p>
         <p className='text-sm sm:text-base text-muted-foreground'>
           I'm currently studying Computer Science, which allows me to explore
