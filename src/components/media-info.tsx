@@ -1,6 +1,6 @@
+import { mediaInfoList } from '@/data/mediaInfoList'
 import Link from 'next/link'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
-import { mediaInfoList } from '@/data/mediaInfoList'
 
 export const MediaInfo = () => {
   return (
@@ -9,6 +9,8 @@ export const MediaInfo = () => {
         <Link
           key={item.title}
           href={item.link}
+          target='_blank'
+          rel='noopener noreferrer'
           aria-label={item.description}
         >
           <Tooltip>

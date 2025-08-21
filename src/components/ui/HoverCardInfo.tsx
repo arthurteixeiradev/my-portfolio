@@ -30,6 +30,8 @@ export function HoverCardInfo({
         <Link
           href={link}
           aria-label={`Go to ${title}`}
+          target='_blank'
+          rel='noopener noreferrer'
           className={cn(
             'text-sm sm:text-base text-foreground hover:text-teal-600 transition-colors duration-200',
             table && 'sm:text-sm',
@@ -50,6 +52,8 @@ export function HoverCardInfo({
             <Link
               href={link}
               aria-label={`Go to ${title}`}
+              target='_blank'
+              rel='noopener noreferrer'
               className='text-muted-foreground text-xs hover:text-teal-600 transition-colors duration-200'
             >
               Click to visit the website.

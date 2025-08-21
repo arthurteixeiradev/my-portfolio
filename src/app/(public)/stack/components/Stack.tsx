@@ -24,6 +24,8 @@ export const Stack = () => {
           <Link
             href={tech.site}
             key={tech.title}
+            target='_blank'
+            rel='noopener noreferrer'
             className={cn(
               'flex justify-center items-center w-60 h-28',
               'hover:border hover:border-muted-foreground/15 hover:bg-muted-foreground/5 hover:rounded-md',
