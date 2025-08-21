@@ -43,6 +43,8 @@ export function ProjectsTable() {
                 <Link
                   href={project.link}
                   aria-label={`Go to ${project.name} site`}
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='flex items-center gap-2'
                 >
                   {project.name} <ExternalLink size={14} />
@@ -55,7 +57,14 @@ export function ProjectsTable() {
             {!isMobile && (
               <>
                 <TableCell className='text-muted-foreground'>
-                  {project.madeAt}
+                  <Link
+                    href={project.madeAtLink}
+                    aria-label={`Go to ${project.madeAt} site`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {project.madeAt}
+                  </Link>
                 </TableCell>
                 <TableCell>
                   <HoverCardInfo
