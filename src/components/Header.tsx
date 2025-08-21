@@ -1,32 +1,31 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Icons } from './ui/icons'
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
-import { ProgressBar } from './ProgressBar'
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from '@/components/ui/sheet'
-import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Menu } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { ProgressBar } from './ProgressBar'
 import { AnimatedThemeToggler } from './magicui/animated-theme-toggler'
+import { Icons } from './ui/icons'
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
+const navItems = [
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/stack', label: 'Stack' },
+  { href: '/contact', label: 'Contact' },
+]
 export const Header = () => {
   const pathname = usePathname()
-
-  const navItems = [
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/stack', label: 'Stack' },
-    { href: '/contact', label: 'Contact' },
-  ]
 
   return (
     <>
