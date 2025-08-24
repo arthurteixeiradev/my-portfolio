@@ -27,6 +27,8 @@ const navItems = [
 export const Header = () => {
   const pathname = usePathname()
 
+  if (pathname === '/links') return null
+
   return (
     <>
       <ProgressBar />
