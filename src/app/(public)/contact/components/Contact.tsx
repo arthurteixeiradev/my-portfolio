@@ -1,17 +1,17 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useForm } from 'react-hook-form'
-import { Info, LoaderCircle, Mail } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 import emailjs from '@emailjs/browser'
-import { Textarea } from '@/components/ui/textarea'
-import { toast } from 'sonner'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Info, LoaderCircle, Mail } from 'lucide-react'
 import { useTransition } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import { z } from 'zod'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'The name must be at least 2 characters long'),
@@ -112,7 +112,7 @@ export const Contact = () => {
             <Input
               id='email'
               type='email'
-              aria-invalid={!!errors.name}
+              aria-invalid={!!errors.email}
               placeholder='Your e-mail'
               {...register('email')}
             />
@@ -132,7 +132,7 @@ export const Contact = () => {
             </Label>
             <Textarea
               id='Message'
-              aria-invalid={!!errors.name}
+              aria-invalid={!!errors.message}
               placeholder='How can I help you?'
               {...register('message')}
             />

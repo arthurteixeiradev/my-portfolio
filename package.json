@@ -74,5 +74,8 @@
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "pnpm": ">=10"
   }
 }
