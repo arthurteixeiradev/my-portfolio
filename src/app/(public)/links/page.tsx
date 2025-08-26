@@ -1,6 +1,12 @@
 import { Button } from '@/components/ui/button'
 import { Github, Globe, Instagram, Linkedin } from 'lucide-react'
+import { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Links | Arthur Teixeira',
+  description: 'Explore useful links and resources curated by Arthur Teixeira.',
+}
 
 export default function LinksPage() {
   const links = [
