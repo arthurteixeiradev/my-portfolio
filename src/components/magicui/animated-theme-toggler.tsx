@@ -1,11 +1,11 @@
 'use client'
 
-import { Moon, Sun } from 'lucide-react'
-import { useCallback, useRef } from 'react'
 import { cn } from '@/lib/utils'
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
-import { Button } from '../ui/button'
+import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { useCallback, useRef } from 'react'
+import { Button } from '../ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 
 type Props = {
   disableTooltip?: boolean
@@ -18,35 +18,48 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
   const changeTheme = useCallback(() => {
     if (!buttonRef.current) return
 
-    const transition = document.startViewTransition(() => {
-      setTheme(theme === 'light' ? 'dark' : 'light')
-    })
+    const canAnimate = typeof document.startViewTransition === 'function'
 
-    transition.ready.then(() => {
-      if (!buttonRef.current) return
-      const { top, left, width, height } =
-        buttonRef.current.getBoundingClientRect()
-      const y = top + height / 2
-      const x = left + width / 2
-      const right = window.innerWidth - left
-      const bottom = window.innerHeight - top
-      const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
+    const toggleTheme = () => {
+      setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
+    }
 
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${maxRad}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration: 700,
-          easing: 'ease-in-out',
-          pseudoElement: '::view-transition-new(root)',
-        },
-      )
-    })
-  }, [theme, setTheme])
+    if (canAnimate) {
+      const transition = document.startViewTransition(toggleTheme)
+
+      transition.ready.then(() => {
+        if (!buttonRef.current) return
+
+        const { top, left, width, height } =
+          buttonRef.current.getBoundingClientRect()
+        const y = top + height / 2
+        const x = left + width / 2
+        const right = window.innerWidth - left
+        const bottom = window.innerHeight - top
+        const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
+
+        try {
+          document.documentElement.animate(
+            {
+              clipPath: [
+                `circle(0px at ${x}px ${y}px)`,
+                `circle(${maxRad}px at ${x}px ${y}px)`,
+              ],
+            },
+            {
+              duration: 700,
+              easing: 'ease-in-out',
+              pseudoElement: '::view-transition-new(root)',
+            },
+          )
+        } catch (e) {
+          toggleTheme()
+        }
+      })
+    } else {
+      toggleTheme()
+    }
+  }, [setTheme])
 
   const button = (
     <Button
@@ -54,7 +67,7 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
       variant='ghost'
       size='icon'
       onClick={changeTheme}
-      className={cn('group w-[50px] h-[50px] ml-3')}
+      className={cn('group w-8 h-8')}
     >
       <div className='transform transition-transform duration-300 ease-in-out group-hover:scale-110'>
         <Sun className='h-5 w-5 hidden dark:block fill-foreground' />

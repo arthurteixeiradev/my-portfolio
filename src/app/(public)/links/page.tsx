@@ -40,17 +40,17 @@ export default function LinksPage() {
     <div className='min-h-screen flex items-center justify-center p-4'>
       <div className='w-full max-w-md mx-auto'>
         <div className='text-center mb-8'>
-          <div className='relative w-24 h-24 mx-auto mb-4'>
+          <div className='relative w-30 h-30 mx-auto mb-4'>
             <img
               src='https://media.licdn.com/dms/image/v2/D4D03AQGydnr_aRUsJA/profile-displayphoto-shrink_400_400/B4DZPfW280G0Ag-/0/1734619132943?e=1758758400&v=beta&t=kkvicQ5P2565ZWJJS2TNuMkg6McPwQaRyactbwqd3YM'
               alt='Arthur Teixeira'
-              width={96}
-              height={96}
+              width={120}
+              height={120}
               className='rounded-full object-cover border-2 border-muted-foreground shadow-lg'
             />
           </div>
 
-          <h1 className='text-2xl font-bold mb-2'>Arthur Teixeira</h1>
+          <h1 className='text-xl font-bold mb-2'>Arthur Teixeira</h1>
 
           <p className='text-muted-foreground text-sm'>Developer</p>
         </div>
