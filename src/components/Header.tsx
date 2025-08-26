@@ -13,9 +13,11 @@ import { cn } from '@/lib/utils'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { ProgressBar } from './ProgressBar'
 import { AnimatedThemeToggler } from './magicui/animated-theme-toggler'
 import { Icons } from './ui/icons'
+import { SearchButton } from './ui/search-button'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
 const navItems = [
@@ -26,6 +28,13 @@ const navItems = [
 ]
 export const Header = () => {
   const pathname = usePathname()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   if (pathname === '/links') return null
 
@@ -35,7 +44,7 @@ export const Header = () => {
       <header>
         <div
           className={cn(
-            'flex items-center w-full justify-between fixed sm:top-6 z-50 px-4 sm:px-8 md:px-16',
+            'flex items-center h-[50px] w-full justify-between fixed sm:top-6 z-50 px-4 sm:px-8 md:px-16',
             'bg-background sm:bg-transparent',
             pathname === '/' && 'bg-transparent',
           )}
@@ -59,8 +68,8 @@ export const Header = () => {
 
           <div
             className={cn(
-              'hidden md:flex justify-center items-center py-2',
-              'bg-transparent backdrop-blur-xl rounded-full h-auto max-w-fit mx-auto border border-muted-foreground/15',
+              'hidden md:flex justify-center items-center py-2 ml-0 md:ml-[50px] h-full',
+              'bg-transparent backdrop-blur-xl rounded-full border border-muted-foreground/15',
             )}
           >
             <nav className='font-medium p-1'>
@@ -84,8 +93,10 @@ export const Header = () => {
             </nav>
           </div>
 
-          <div className='hidden md:block'>
+          <div className='hidden md:flex md:items-center md:justify-end md:gap-2 md:w-[100px]'>
             <AnimatedThemeToggler />
+
+            {pathname !== '/' && <SearchButton />}
           </div>
 
           <div className='md:hidden'>
@@ -127,7 +138,11 @@ export const Header = () => {
                     </SheetClose>
                   ))}
                 </nav>
-                <AnimatedThemeToggler disableTooltip />
+
+                <div className='flex items-center justify-start gap-2 ml-3'>
+                  <AnimatedThemeToggler disableTooltip />
+                  <SearchButton disableTooltip />
+                </div>
               </SheetContent>
             </Sheet>
           </div>
