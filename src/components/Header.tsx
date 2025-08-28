@@ -29,6 +29,7 @@ const navItems = [
 export const Header = () => {
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -100,7 +101,10 @@ export const Header = () => {
           </div>
 
           <div className='md:hidden'>
-            <Sheet>
+            <Sheet
+              open={open}
+              onOpenChange={setOpen}
+            >
               <SheetTrigger asChild>
                 <Button
                   variant='default'
@@ -141,7 +145,10 @@ export const Header = () => {
 
                 <div className='flex items-center justify-start gap-2 ml-3'>
                   <AnimatedThemeToggler disableTooltip />
-                  <SearchButton disableTooltip />
+                  <SearchButton
+                    disableTooltip
+                    onSelectOption={() => setOpen(false)}
+                  />
                 </div>
               </SheetContent>
             </Sheet>
