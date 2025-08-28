@@ -1,32 +1,25 @@
+import { goTo, suggestions } from '@/data/navItems'
+import { Search } from 'lucide-react'
+import { useState } from 'react'
+import { Button } from './button'
 import {
-  Command,
+  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/components/ui/command'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
-import { goTo, suggestions } from '@/data/navItems'
-import { Search } from 'lucide-react'
-import { useState } from 'react'
-import { Button } from './button'
+} from './command'
 import { NavLink } from './nav-link'
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip'
 
 type Props = {
   disableTooltip?: boolean
+  onSelectOption?: () => void
 }
 
-export const SearchButton = ({ disableTooltip }: Props) => {
+export const SearchButton = ({ disableTooltip, onSelectOption }: Props) => {
   const [open, setOpen] = useState(false)
 
   const button = (
@@ -34,6 +27,7 @@ export const SearchButton = ({ disableTooltip }: Props) => {
       variant='outline'
       size='icon'
       className='w-8 h-8 shadow-md'
+      onClick={() => setOpen(true)}
     >
       <Search />
       <span className='sr-only'>Search</span>
@@ -41,68 +35,65 @@ export const SearchButton = ({ disableTooltip }: Props) => {
   )
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={setOpen}
-    >
+    <>
       {disableTooltip ? (
-        <DialogTrigger asChild>{button}</DialogTrigger>
+        button
       ) : (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <DialogTrigger asChild>{button}</DialogTrigger>
-          </TooltipTrigger>
+          <TooltipTrigger asChild>{button}</TooltipTrigger>
           <TooltipContent>
             <p>Open search</p>
           </TooltipContent>
         </Tooltip>
       )}
-      <DialogContent
+
+      <CommandDialog
+        open={open}
+        onOpenChange={setOpen}
+        title='Search'
+        description='Enter a keyword to quickly find what you are looking for.'
         showCloseButton={false}
-        className='h-[450px]'
       >
-        <DialogHeader className='sr-only'>
-          <DialogTitle>Search</DialogTitle>
-          <DialogDescription>
-            Enter a keyword to quickly find what you are looking for.
-          </DialogDescription>
-        </DialogHeader>
-        <Command className='rounded-sm'>
-          <CommandInput placeholder='Type to search...' />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading='Suggestions'>
-              {suggestions.map(item => (
-                <CommandItem key={item.title}>
-                  <NavLink
-                    href={item.link}
-                    ariaLabel={`Go to ${item.title}`}
-                    onClick={() => setOpen(false)}
-                  >
-                    <item.icon className='mr-2 hover:text-foreground' />
-                    <span>{item.title}</span>
-                  </NavLink>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-            <CommandSeparator />
-            <CommandGroup heading='Go to'>
-              {goTo.map(item => (
-                <CommandItem key={item.title}>
-                  <NavLink
-                    href={item.link}
-                    ariaLabel={`Go to ${item.title}`}
-                    onClick={() => setOpen(false)}
-                  >
-                    <item.icon className='mr-2 hover:text-foreground' />
-                    <span>{item.title}</span>
-                  </NavLink>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </DialogContent>
-    </Dialog>
+        <CommandInput placeholder='Type to search...' />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading='Suggestions'>
+            {suggestions.map(item => (
+              <CommandItem key={item.title}>
+                <NavLink
+                  href={item.link}
+                  ariaLabel={`Go to ${item.title}`}
+                  onClick={() => {
+                    setOpen(false)
+                    onSelectOption?.()
+                  }}
+                >
+                  <item.icon className='mr-2 hover:text-foreground' />
+                  <span>{item.title}</span>
+                </NavLink>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading='Go to'>
+            {goTo.map(item => (
+              <CommandItem key={item.title}>
+                <NavLink
+                  href={item.link}
+                  ariaLabel={`Go to ${item.title}`}
+                  onClick={() => {
+                    setOpen(false)
+                    onSelectOption?.()
+                  }}
+                >
+                  <item.icon className='mr-2 hover:text-foreground' />
+                  <span>{item.title}</span>
+                </NavLink>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
+    </>
   )
 }

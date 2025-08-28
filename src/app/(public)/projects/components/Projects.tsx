@@ -15,13 +15,7 @@ export const Projects = () => {
         </p>
       </div>
 
-      <div className='flex items-center flex-col gap-4'>
-        <h1 className='text-xl sm:text-3xl text-gradient-br max-w-max font-semibold'>
-          Projects
-        </h1>
-
-        <ProjectsTable />
-      </div>
+      <ProjectsTable />
     </section>
   )
 }
