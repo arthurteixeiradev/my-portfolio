@@ -50,6 +50,12 @@ export const techStack: TechStackType[] = [
     site: 'https://ui.shadcn.com/',
   },
   {
+    title: 'Hygraph',
+    alt: 'Hygraph',
+    src: 'https://github.com/hygraph.png',
+    site: 'https://hygraph.com/',
+  },
+  {
     title: 'TailwindCSS',
     alt: 'TailwindCSS',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
@@ -78,6 +84,12 @@ export const techStack: TechStackType[] = [
     alt: 'NodeJS',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
     site: 'https://nodejs.org/',
+  },
+  {
+    title: 'SQL Server',
+    alt: 'SQL Server',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
+    site: 'https://www.microsoft.com/sql-server/',
   },
   {
     title: 'Git',
