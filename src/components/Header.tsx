@@ -71,6 +71,7 @@ export const Header = () => {
             className={cn(
               'hidden md:flex justify-center items-center py-2 ml-0 md:ml-[50px] h-full',
               'bg-background/75 backdrop-blur-xs rounded-full border border-muted-foreground/15',
+              pathname === '/' && 'bg-transparent backdrop-blur-[1px]',
             )}
           >
             <nav className='font-medium p-1'>
