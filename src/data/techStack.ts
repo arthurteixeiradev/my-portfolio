@@ -50,6 +50,18 @@ export const techStack: TechStackType[] = [
     site: 'https://ui.shadcn.com/',
   },
   {
+    title: 'React Native',
+    alt: 'React Native',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original.svg',
+    site: 'https://reactnative.dev/',
+  },
+  {
+    title: 'Expo',
+    alt: 'Expo',
+    src: 'https://github.com/expo.png',
+    site: 'https://expo.dev/',
+  },
+  {
     title: 'Hygraph',
     alt: 'Hygraph',
     src: 'https://github.com/hygraph.png',
