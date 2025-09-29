@@ -2,8 +2,8 @@ import { MediaInfo } from '@/components/media-info'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
-import { ShineBorder } from './magicui/shine-border'
 import { Meteors } from './magicui/meteors'
+import { ShineBorder } from './magicui/shine-border'
 
 export const Hero = () => {
   return (
@@ -51,7 +51,7 @@ export const Hero = () => {
         >
           I'm Arthur Teixeira
           <p className='text-2xl md:text-5xl font-semibold'>
-            Frontend Developer
+            Software Engineer
           </p>
         </h1>
 

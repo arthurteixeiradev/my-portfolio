@@ -4,8 +4,8 @@ export const AboutMeSection = () => {
   return (
     <div className='space-y-4'>
       <p className='text-sm sm:text-base text-muted-foreground'>
-        My name is Arthur Teixeira, a front-end developer passionate about
-        turning ideas into real, beautiful, and functional interfaces.
+        My name is Arthur Teixeira, a software engineer passionate about turning
+        ideas into real, beautiful, and functional interfaces.
       </p>
       <p className='text-sm sm:text-base text-muted-foreground'>
         I'm currently studying Computer Science, which allows me to explore the

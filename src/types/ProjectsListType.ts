@@ -4,6 +4,8 @@ export type ProjectsListType = {
   description: string
   madeAt: string
   madeAtLink: string
+  image: string
   icon: string
   link: string
+  technologies: string[]
 }
