@@ -10,7 +10,7 @@ export const FeaturedProjects = () => {
         </h1>
       </div>
 
-      <div className='lg:space-y-20 md:space-y-10 space-y-4'>
+      <div className='flex flex-col lg:gap-20 md:gap-12 gap-8'>
         {projectsList.map(project => (
           <ProjectCard
             key={project.name}
