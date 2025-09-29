@@ -1,3 +1,4 @@
+import { FeaturedProjects } from './FeaturedProjects'
 import { ProjectsTable } from './ProjectsTable'
 
 export const Projects = () => {
@@ -9,12 +10,16 @@ export const Projects = () => {
           applications.
         </h1>
         <p className='text-sm sm:text-base text-muted-foreground'>
-          Explore the projects below to see how I merge thoughtful design with
-          robust engineering to create experiences that are not only memorable
-          but highly efficient for the user.
+          In this section, I showcase projects I’ve developed, reflecting my
+          focus on modern, functional, and well-structured solutions. I use
+          current technologies and best practices, prioritizing performance,
+          accessibility, and responsive design. The projects demonstrate my
+          technical skills and commitment to delivering digital products with
+          excellent user experience and real value.
         </p>
       </div>
 
+      <FeaturedProjects />
       <ProjectsTable />
     </section>
   )

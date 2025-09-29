@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Arthur Teixeira | Software engineer',
   description:
-    'Portfolio of Arthur Teixeira, a frontend developer specialized in Next.js, React, and modern interfaces.',
+    'Portfolio of Arthur Teixeira, a software engineer specialized in Next.js, React, and modern interfaces.',
 }
 
 export default function HomePage() {
