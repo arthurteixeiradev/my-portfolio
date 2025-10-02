@@ -1,4 +1,5 @@
 import { HoverCardInfo } from '@/components/ui/HoverCardInfo'
+import { careerList } from '@/data/careerList'
 
 export const CareerSection = () => {
   return (
@@ -6,24 +7,31 @@ export const CareerSection = () => {
       <h1 className='text-lg sm:text-2xl text-gradient-br font-semibold'>
         Career
       </h1>
-      <div className='flex flex-col gap-4'>
-        <div className='flex flex-col gap-1'>
-          <p className='text-sm sm:text-base font-semibold'>
-            VIFE Solutions (Dec 2024 - Current)
-          </p>
-          <p className='text-sm sm:text-base text-muted-foreground italic'>
-            Frontend Development Intern
-          </p>
-          <p>
-            <HoverCardInfo
-              placeholder='vifesolutions.com ->'
-              title='VIFE Solutions'
-              description='A software development company that provides services to companies and individuals.'
-              icon='https://github.com/vifesolutions.png'
-              link='https://vifesolutions.com/'
-            />
-          </p>
-        </div>
+      <div className='flex flex-col gap-8'>
+        {careerList.map(career => (
+          <div
+            className='flex flex-col gap-4'
+            key={career.id}
+          >
+            <div className='flex flex-col gap-1'>
+              <p className='text-sm sm:text-base font-semibold'>
+                {career.title} ({career.startDate} - {career.endDate})
+              </p>
+              <p className='text-sm sm:text-base text-muted-foreground italic'>
+                {career.description}
+              </p>
+              <p>
+                <HoverCardInfo
+                  placeholder={`${career.placeholder}`}
+                  title={career.title}
+                  description={career.companyDescription}
+                  icon={career.icon}
+                  link={career.link}
+                />
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
