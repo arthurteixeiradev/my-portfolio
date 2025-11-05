@@ -26,6 +26,18 @@ export const techStack: TechStackType[] = [
     site: 'https://www.oracle.com/java/',
   },
   {
+    title: 'NodeJS',
+    alt: 'NodeJS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+    site: 'https://nodejs.org/',
+  },
+  {
+    title: 'Express',
+    alt: 'Express',
+    src: 'https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png&color=000000',
+    site: 'https://expressjs.com/',
+  },
+  {
     title: 'React',
     alt: 'React',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
@@ -90,12 +102,6 @@ export const techStack: TechStackType[] = [
     alt: 'Bootstrap',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg',
     site: 'https://getbootstrap.com/',
-  },
-  {
-    title: 'NodeJS',
-    alt: 'NodeJS',
-    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
-    site: 'https://nodejs.org/',
   },
   {
     title: 'SQL Server',
