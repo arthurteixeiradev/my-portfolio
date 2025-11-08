@@ -8,7 +8,7 @@ export const careerList: CareerType[] = [
     placeholder: 'vtrina.com ->',
     companyDescription:
       'Vtrina is a system that allows online stores to control their merchandise, inventory, and data from various sales channels.',
-    icon: 'https://media.licdn.com/dms/image/v2/C4D0BAQFbm6P1lPYIvw/company-logo_200_200/company-logo_200_200/0/1630474413178/vtrina_logo?e=1762387200&v=beta&t=9nijiTj7v6QLvz_AFNXHfjIyziVA1TZYiWDVZ07fEFA',
+    icon: 'https://media.licdn.com/dms/image/v2/C4D0BAQFbm6P1lPYIvw/company-logo_200_200/company-logo_200_200/0/1630474413178/vtrina_logo?e=1764201600&v=beta&t=1DGtEEy9aQsGd_bjPU1EYUmjutVT_PzDOfxzap8KwtE',
     link: 'https://vtrina.com/',
     startDate: 'Oct 2025',
     endDate: 'Current',
