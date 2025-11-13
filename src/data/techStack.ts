@@ -38,22 +38,28 @@ export const techStack: TechStackType[] = [
     site: 'https://expressjs.com/',
   },
   {
+    title: 'Redis',
+    alt: 'Redis',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
+    site: 'https://redis.io/',
+  },
+  {
     title: 'React',
     alt: 'React',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
     site: 'https://reactjs.org/',
   },
   {
-    title: 'Zustand',
-    alt: 'Zustand',
-    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zustand/zustand-original.svg',
-    site: 'https://zustand-demo.pmnd.rs/',
-  },
-  {
     title: 'NextJS',
     alt: 'NextJS',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
     site: 'https://nextjs.org/',
+  },
+  {
+    title: 'Zustand',
+    alt: 'Zustand',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zustand/zustand-original.svg',
+    site: 'https://zustand-demo.pmnd.rs/',
   },
   {
     title: 'shadcn/ui',
@@ -80,6 +86,12 @@ export const techStack: TechStackType[] = [
     site: 'https://hygraph.com/',
   },
   {
+    title: 'SQL Server',
+    alt: 'SQL Server',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
+    site: 'https://www.microsoft.com/sql-server/',
+  },
+  {
     title: 'TailwindCSS',
     alt: 'TailwindCSS',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
@@ -102,12 +114,6 @@ export const techStack: TechStackType[] = [
     alt: 'Bootstrap',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg',
     site: 'https://getbootstrap.com/',
-  },
-  {
-    title: 'SQL Server',
-    alt: 'SQL Server',
-    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
-    site: 'https://www.microsoft.com/sql-server/',
   },
   {
     title: 'Git',
