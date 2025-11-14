@@ -1,3 +1,4 @@
+import me from '@/assets/images/me.png'
 import { Button } from '@/components/ui/button'
 import { Github, Globe, Instagram, Linkedin } from 'lucide-react'
 import { Metadata } from 'next'
@@ -42,7 +43,7 @@ export default function LinksPage() {
         <div className='text-center mb-8'>
           <div className='relative w-30 h-30 mx-auto mb-4'>
             <img
-              src='https://media.licdn.com/dms/image/v2/D4D03AQHDV37niIUAIw/profile-displayphoto-scale_400_400/B4DZmTWv3yJAAg-/0/1759113838625?e=1761782400&v=beta&t=dUuUgFrO1Jft_kSrZ2iI92-V-jkEr2mEn9o4Wqylkh8'
+              src={me.src}
               alt='Arthur Teixeira'
               width={120}
               height={120}
