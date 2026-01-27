@@ -38,6 +38,12 @@ export const techStack: TechStackType[] = [
     site: 'https://expressjs.com/',
   },
   {
+    title: 'Docker',
+    alt: 'Docker',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+    site: 'https://www.docker.com/',
+  },
+  {
     title: 'Redis',
     alt: 'Redis',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
