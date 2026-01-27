@@ -57,7 +57,7 @@ export const SearchButton = ({ disableTooltip, onSelectOption }: Props) => {
         <CommandInput placeholder='Type to search...' />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading='Suggestions'>
+          <CommandGroup heading='SUGGESTIONS'>
             {suggestions.map(item => (
               <CommandItem key={item.title}>
                 <NavLink
@@ -75,7 +75,7 @@ export const SearchButton = ({ disableTooltip, onSelectOption }: Props) => {
             ))}
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading='Go to'>
+          <CommandGroup heading='GO TO'>
             {goTo.map(item => (
               <CommandItem key={item.title}>
                 <NavLink
