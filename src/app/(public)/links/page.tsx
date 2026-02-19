@@ -13,7 +13,7 @@ export default function LinksPage() {
   const links = [
     {
       title: "My website",
-      url: "https://arthurteixeira.vercel.app/",
+      url: "https://arthurteixeira.dev/",
       icon: Globe,
       description: "see my page",
     },
