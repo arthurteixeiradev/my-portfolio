@@ -21,7 +21,7 @@ export const projectsList: ProjectsListType[] = [
     description:
       'Batista Ágape Church. We are a community of Christians whose greatest purpose is to worship and serve Jesus Christ.',
     madeAt: 'Arthur Teixeira',
-    madeAtLink: 'https://arthurteixeira.vercel.app/',
+    madeAtLink: 'https://arthurteixeira.dev/',
     image: siteIgreja.src,
     icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsPOdj86Bf05jUzeaU1Q59Z-cVKDN-05vIQ&s',
     link: 'https://igreja-batista-agape.vercel.app/',
