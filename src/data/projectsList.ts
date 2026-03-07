@@ -1,8 +1,21 @@
 import blomboLogo from '@/assets/images/blomboLogo.png'
 import siteIgreja from '@/assets/images/siteIgreja.png'
+import docheckLogo from '@/assets/images/logo-docheck.png'
 import { ProjectsListType } from '@/types/ProjectsListType'
 
 export const projectsList: ProjectsListType[] = [
+  {
+    year: '2026',
+    name: 'Docheck',
+    description:
+      'Founded to simplify fleet operations, this platform is a fleet management system designed to help companies monitor vehicle conditions, track maintenance, perform checklists, and communicate with drivers. The solution includes a web dashboard for administrators and a mobile app for employees, enabling real-time updates, issue reporting, and efficient fleet oversight.',
+    madeAt: 'Arthur Teixeira',
+    madeAtLink: 'https://arthurteixeira.dev/',
+    image: docheckLogo.src,
+    icon: docheckLogo.src,
+    link: 'https://frota.pmto8bpm.com.br/login',
+    technologies: ['React', 'Next.js', 'React Native', 'Java', 'Spring Boot', 'AWS'],
+  },
   {
     year: '2025',
     name: 'Blombô',
