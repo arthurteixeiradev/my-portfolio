@@ -26,6 +26,12 @@ export const techStack: TechStackType[] = [
     site: 'https://www.oracle.com/java/',
   },
   {
+    title: 'C#',
+    alt: 'C#',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg',
+    site: 'https://dotnet.microsoft.com/pt-br/languages/csharp',
+  },
+  {
     title: 'NodeJS',
     alt: 'NodeJS',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
@@ -90,6 +96,12 @@ export const techStack: TechStackType[] = [
     alt: 'Hygraph',
     src: 'https://github.com/hygraph.png',
     site: 'https://hygraph.com/',
+  },
+  {
+    title: 'MongoDB',
+    alt: 'MongoDB',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+    site: 'https://www.mongodb.com/',
   },
   {
     title: 'SQL Server',
