@@ -5,7 +5,7 @@ export const careerList: CareerType[] = [
   {
     id: "1",
     title: "Vtrina",
-    description: "Software Development Intern",
+    description: "Fullstack Development Intern",
     placeholder: "vtrina.com ->",
     companyDescription:
       "Vtrina is a system that allows online stores to control their merchandise, inventory, and data from various sales channels.",
