@@ -1,9 +1,9 @@
-import { ExternalLink } from 'lucide-react'
 import { HoverCardInfo } from '@/components/ui/HoverCardInfo'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { careerList } from '@/data/careerList'
 import { CareerType } from '@/types/CareerType'
+import { ExternalLink } from 'lucide-react'
 
 type RoleType = {
   title: string
@@ -35,7 +35,7 @@ const CareerRoleItem = ({ role, isLast }: { role: RoleType; isLast: boolean }) =
 
       <div className="flex flex-col gap-1 transition-transform group-hover:translate-x-1 pb-1">
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-          <h4 className="text-sm sm:text-base font-medium text-foreground flex items-center gap-3">
+          <h4 className="text-sm sm:text-base font-medium text-foreground flex items-center gap-3 group-hover:text-teal-600 hover:text-teal-600 transition-colors duration-200 cursor-default">
             {role.title}
             {isCurrent && (
               <Badge className="bg-emerald-400/10 text-emerald-400 hover:bg-emerald-400/20 border-emerald-400/20 px-2 h-5 text-[10px] font-bold tracking-wider">
@@ -92,7 +92,7 @@ const CareerItem = ({ career }: { career: CareerType }) => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-muted-foreground h-8 group"
+                className="text-muted-foreground h-8 group hover:text-teal-600 transition-colors duration-200"
                 asChild
               >
                 <a
