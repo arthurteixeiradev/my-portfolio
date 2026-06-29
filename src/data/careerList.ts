@@ -13,6 +13,18 @@ export const careerList: CareerType[] = [
     link: "https://vtrina.com/",
     startDate: "Oct 2025",
     endDate: "Current",
+    roles: [
+      {
+        title: "Junior Fullstack Developer",
+        startDate: "Jun 2026",
+        endDate: "Current",
+      },
+      {
+        title: "Fullstack Development Intern",
+        startDate: "Oct 2025",
+        endDate: "Jun 2026",
+      },
+    ]
   },
   {
     id: "2",

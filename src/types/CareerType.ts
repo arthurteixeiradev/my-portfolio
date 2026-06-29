@@ -8,4 +8,9 @@ export type CareerType = {
   link: string
   startDate: string
   endDate: string
+  roles?: {
+    title: string
+    startDate: string
+    endDate: string
+  }[]
 }

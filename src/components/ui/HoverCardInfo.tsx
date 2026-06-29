@@ -14,6 +14,7 @@ type HoverCardInfoProps = {
   description: string
   icon: string
   link: string
+  children?: React.ReactNode
 }
 
 export function HoverCardInfo({
@@ -23,22 +24,27 @@ export function HoverCardInfo({
   icon,
   link,
   table,
+  children,
 }: HoverCardInfoProps) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Link
-          href={link}
-          aria-label={`Go to ${title}`}
-          target='_blank'
-          rel='noopener noreferrer'
-          className={cn(
-            'text-sm sm:text-base text-foreground hover:text-teal-600 transition-colors duration-200',
-            table && 'sm:text-sm',
-          )}
-        >
-          {placeholder ? placeholder : title}
-        </Link>
+        {children ? (
+          children
+        ) : (
+          <Link
+            href={link}
+            aria-label={`Go to ${title}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={cn(
+              'text-sm sm:text-base text-foreground hover:text-teal-600 transition-colors duration-200',
+              table && 'sm:text-sm',
+            )}
+          >
+            {placeholder ? placeholder : title}
+          </Link>
+        )}
       </HoverCardTrigger>
       <HoverCardContent className='w-80'>
         <div className='flex justify-between gap-4'>
