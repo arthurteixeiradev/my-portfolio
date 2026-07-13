@@ -50,6 +50,12 @@ export const techStack: TechStackType[] = [
     site: 'https://www.docker.com/',
   },
   {
+    title: 'RabbitMQ',
+    alt: 'RabbitMQ',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg',
+    site: 'https://www.rabbitmq.com/',
+  },
+  {
     title: 'Redis',
     alt: 'Redis',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
