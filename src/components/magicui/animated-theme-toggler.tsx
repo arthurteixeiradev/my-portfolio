@@ -6,7 +6,6 @@ import { useTheme } from 'next-themes'
 import { useCallback, useRef } from 'react'
 import { Button } from '../ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
-import { animate } from 'framer-motion'
 
 type Props = {
   disableTooltip?: boolean
@@ -48,15 +47,14 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
       .then(() => {
         if (!buttonRef.current) return
 
-        const { top, left, width, height } =
-          buttonRef.current.getBoundingClientRect()
+        const { top, left, width, height } = buttonRef.current.getBoundingClientRect()
         const x = left + width / 2
         const y = top + height / 2
         const right = window.innerWidth - left
         const bottom = window.innerHeight - top
         const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
 
-        const styleId = 'framer-vt-styles'
+        const styleId = 'vt-theme-animation'
         let styleEl = document.getElementById(styleId)
         if (!styleEl) {
           styleEl = document.createElement('style')
@@ -66,34 +64,53 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
 
         styleEl.innerHTML = `
           ::view-transition-new(root) {
-            animation: framer-dummy 2000ms linear forwards;
+            animation: vt-dummy 2000ms linear forwards;
             clip-path: circle(var(--vt-radius, 0px) at ${x}px ${y}px);
           }
           ::view-transition-old(root) {
-            animation: framer-dummy 2000ms linear forwards;
+            animation: vt-dummy 2000ms linear forwards;
           }
-          @keyframes framer-dummy {
+          @keyframes vt-dummy {
             from { opacity: 1; }
             to { opacity: 1; }
           }
         `
 
-        animate(0, maxRad, {
-          duration: 0.7,
-          ease: 'easeInOut',
-          onUpdate: (value) => {
-            document.documentElement.style.setProperty(
-              '--vt-radius',
-              `${value}px`,
-            )
-          },
-          onComplete: () => {
-            document.documentElement.style.removeProperty('--vt-radius')
-            if (styleEl.parentNode) {
+        const duration = 700
+        const start = performance.now()
+        const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t)
+        
+        let rafId: number
+
+        const tick = (now: number) => {
+          const elapsed = now - start
+          const progress = Math.min(elapsed / duration, 1)
+          const eased = easeInOut(progress)
+          const currentRadius = eased * maxRad
+
+          document.documentElement.style.setProperty(
+            '--vt-radius',
+            `${currentRadius}px`,
+          )
+
+          if (progress < 1) {
+            rafId = requestAnimationFrame(tick)
+          } else {
+            if (styleEl?.parentNode) {
               styleEl.parentNode.removeChild(styleEl)
             }
-            isAnimating.current = false
-          },
+          }
+        }
+
+        rafId = requestAnimationFrame(tick)
+
+        transition.finished.finally(() => {
+          cancelAnimationFrame(rafId)
+          document.documentElement.style.removeProperty('--vt-radius')
+          if (styleEl?.parentNode) {
+            styleEl.parentNode.removeChild(styleEl)
+          }
+          isAnimating.current = false
         })
       })
       .catch(() => {
