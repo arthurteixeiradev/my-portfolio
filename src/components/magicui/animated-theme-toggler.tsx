@@ -6,60 +6,100 @@ import { useTheme } from 'next-themes'
 import { useCallback, useRef } from 'react'
 import { Button } from '../ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
+import { animate } from 'framer-motion'
 
 type Props = {
   disableTooltip?: boolean
 }
 
 export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
-  const { setTheme, theme } = useTheme()
+  const { setTheme, theme, resolvedTheme } = useTheme()
   const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const isAnimating = useRef(false)
 
   const changeTheme = useCallback(() => {
-    if (!buttonRef.current) return
+    if (!buttonRef.current || isAnimating.current) return
 
-    const canAnimate = typeof document.startViewTransition === 'function'
+    const currentTheme = theme === 'system' ? resolvedTheme : theme
+    const nextTheme = currentTheme === 'light' ? 'dark' : 'light'
 
-    const toggleTheme = () => {
-      setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    const canAnimate =
+      typeof document.startViewTransition === 'function' &&
+      !prefersReducedMotion
+
+    if (!canAnimate) {
+      setTheme(nextTheme)
+      return
     }
 
-    if (canAnimate) {
-      const transition = document.startViewTransition(toggleTheme)
+    isAnimating.current = true
 
-      transition.ready.then(() => {
+    const toggleTheme = () => {
+      setTheme(nextTheme)
+    }
+
+    const transition = document.startViewTransition(toggleTheme)
+
+    transition.ready
+      .then(() => {
         if (!buttonRef.current) return
 
         const { top, left, width, height } =
           buttonRef.current.getBoundingClientRect()
-        const y = top + height / 2
         const x = left + width / 2
+        const y = top + height / 2
         const right = window.innerWidth - left
         const bottom = window.innerHeight - top
         const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
 
-        try {
-          document.documentElement.animate(
-            {
-              clipPath: [
-                `circle(0px at ${x}px ${y}px)`,
-                `circle(${maxRad}px at ${x}px ${y}px)`,
-              ],
-            },
-            {
-              duration: 700,
-              easing: 'ease-in-out',
-              pseudoElement: '::view-transition-new(root)',
-            },
-          )
-        } catch (e) {
-          toggleTheme()
+        const styleId = 'framer-vt-styles'
+        let styleEl = document.getElementById(styleId)
+        if (!styleEl) {
+          styleEl = document.createElement('style')
+          styleEl.id = styleId
+          document.head.appendChild(styleEl)
         }
+
+        styleEl.innerHTML = `
+          ::view-transition-new(root) {
+            animation: framer-dummy 2000ms linear forwards;
+            clip-path: circle(var(--vt-radius, 0px) at ${x}px ${y}px);
+          }
+          ::view-transition-old(root) {
+            animation: framer-dummy 2000ms linear forwards;
+          }
+          @keyframes framer-dummy {
+            from { opacity: 1; }
+            to { opacity: 1; }
+          }
+        `
+
+        animate(0, maxRad, {
+          duration: 0.7,
+          ease: 'easeInOut',
+          onUpdate: (value) => {
+            document.documentElement.style.setProperty(
+              '--vt-radius',
+              `${value}px`,
+            )
+          },
+          onComplete: () => {
+            document.documentElement.style.removeProperty('--vt-radius')
+            if (styleEl.parentNode) {
+              styleEl.parentNode.removeChild(styleEl)
+            }
+            isAnimating.current = false
+          },
+        })
       })
-    } else {
-      toggleTheme()
-    }
-  }, [setTheme])
+      .catch(() => {
+        isAnimating.current = false
+      })
+  }, [theme, resolvedTheme, setTheme])
 
   const button = (
     <Button
