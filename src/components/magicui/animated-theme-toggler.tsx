@@ -35,72 +35,53 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
       return
     }
 
+    const { top, left, width, height } =
+      buttonRef.current.getBoundingClientRect()
+    const x = left + width / 2
+    const y = top + height / 2
+
     isAnimating.current = true
 
-    const toggleTheme = () => {
+    const transition = document.startViewTransition(() => {
       setTheme(nextTheme)
-    }
+    })
 
-    const transition = document.startViewTransition(toggleTheme)
+    transition.finished.finally(() => {
+      isAnimating.current = false
+    })
 
-    transition.ready
-      .then(() => {
-        const styleId = 'vt-theme-animation'
-        let styleEl = document.getElementById(styleId)
-        if (!styleEl) {
-          styleEl = document.createElement('style')
-          styleEl.id = styleId
-          document.head.appendChild(styleEl)
-        }
+    transition.ready.then(() => {
+      const maxRad = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y),
+      )
 
-        transition.finished.finally(() => {
-          if (styleEl?.parentNode) {
-            styleEl.parentNode.removeChild(styleEl)
-          }
-          isAnimating.current = false
-        })
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRad}px at ${x}px ${y}px)`,
+          ],
+          opacity: [1, 1],
+        },
+        {
+          duration: 700,
+          easing: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
+          fill: 'both',
+          pseudoElement: '::view-transition-new(root)',
+        },
+      )
 
-        if (!buttonRef.current) return
-
-        const { top, left, width, height } = buttonRef.current.getBoundingClientRect()
-        const x = left + width / 2
-        const y = top + height / 2
-        const right = window.innerWidth - x
-        const bottom = window.innerHeight - y
-        const maxRad = Math.hypot(Math.max(left, right), Math.max(top, bottom))
-
-        styleEl.textContent = `
-          ::view-transition-image-pair(root) {
-            mix-blend-mode: normal;
-          }
-          ::view-transition-new(root) {
-            animation: vt-reveal 700ms cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
-            z-index: 2;
-            will-change: clip-path;
-          }
-          ::view-transition-old(root) {
-            animation: vt-dummy 700ms linear forwards;
-            z-index: 1;
-          }
-          @keyframes vt-reveal {
-            from {
-              clip-path: circle(0px at ${x}px ${y}px);
-              opacity: 1;
-            }
-            to {
-              clip-path: circle(${maxRad}px at ${x}px ${y}px);
-              opacity: 1;
-            }
-          }
-          @keyframes vt-dummy {
-            from { opacity: 1; }
-            to { opacity: 1; }
-          }
-        `
-      })
-      .catch(() => {
-        isAnimating.current = false
-      })
+      document.documentElement.animate(
+        { opacity: [1, 1] },
+        {
+          duration: 700,
+          easing: 'linear',
+          fill: 'both',
+          pseudoElement: '::view-transition-old(root)',
+        },
+      )
+    })
   }, [theme, resolvedTheme, setTheme])
 
   const button = (
