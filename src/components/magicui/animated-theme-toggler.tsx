@@ -63,16 +63,11 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
         }
 
         styleEl.innerHTML = `
-          @property --vt-radius {
-            syntax: '<length>';
-            initial-value: 0px;
-            inherits: false;
-          }
           ::view-transition-image-pair(root) {
             mix-blend-mode: normal;
           }
           ::view-transition-new(root) {
-            animation: vt-reveal 700ms cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+            animation: vt-dummy 700ms linear forwards;
             clip-path: circle(var(--vt-radius, 0px) at ${x}px ${y}px);
             z-index: 2;
           }
@@ -80,17 +75,39 @@ export const AnimatedThemeToggler = ({ disableTooltip }: Props) => {
             animation: vt-dummy 700ms linear forwards;
             z-index: 1;
           }
-          @keyframes vt-reveal {
-            from { --vt-radius: 0px; opacity: 1; }
-            to { --vt-radius: ${maxRad}px; opacity: 1; }
-          }
           @keyframes vt-dummy {
             from { opacity: 1; }
             to { opacity: 1; }
           }
         `
 
+        const duration = 700
+        const start = performance.now()
+        const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t)
+        
+        let rafId: number
+
+        const tick = (now: number) => {
+          const elapsed = now - start
+          const progress = Math.min(elapsed / duration, 1)
+          const eased = easeInOut(progress)
+          const currentRadius = eased * maxRad
+
+          document.documentElement.style.setProperty(
+            '--vt-radius',
+            `${currentRadius}px`,
+          )
+
+          if (progress < 1) {
+            rafId = requestAnimationFrame(tick)
+          }
+        }
+
+        rafId = requestAnimationFrame(tick)
+
         transition.finished.finally(() => {
+          cancelAnimationFrame(rafId)
+          document.documentElement.style.removeProperty('--vt-radius')
           if (styleEl?.parentNode) {
             styleEl.parentNode.removeChild(styleEl)
           }
