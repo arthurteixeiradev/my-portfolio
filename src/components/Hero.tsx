@@ -10,6 +10,7 @@ export const Hero = () => {
     <section className='relative flex items-center justify-center min-h-screen overflow-hidden'>
       <div className='absolute inset-0 z-0'>
         <div
+          data-theme-decoration
           className='absolute inset-0'
           style={{
             background:
@@ -20,6 +21,7 @@ export const Hero = () => {
         ></div>
 
         <div
+          data-theme-decoration
           className='absolute inset-0 opacity-30'
           style={{
             backgroundImage:
@@ -29,6 +31,7 @@ export const Hero = () => {
         ></div>
 
         <div
+          data-theme-decoration
           className='absolute inset-0 opacity-20'
           style={{
             backgroundImage:

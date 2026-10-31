@@ -113,7 +113,7 @@ const CareerItem = ({ career }: { career: CareerType }) => {
       <div className="relative ml-1 sm:ml-2 mt-4 space-y-8">
         {roles.map((role, idx) => (
           <CareerRoleItem
-            key={idx}
+            key={`${role.title}-${role.startDate}`}
             role={role}
             isLast={idx === roles.length - 1}
           />

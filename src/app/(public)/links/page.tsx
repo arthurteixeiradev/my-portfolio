@@ -1,4 +1,4 @@
-import me from "@/assets/images/me.png";
+import me from "@/assets/images/me.webp";
 import { Button } from "@/components/ui/button";
 import { Github, Globe, Instagram, Linkedin } from "lucide-react";
 import { Metadata } from "next";
