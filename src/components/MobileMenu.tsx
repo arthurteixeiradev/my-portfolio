@@ -73,7 +73,7 @@ export const MobileMenu = ({ navItems }: MobileMenuProps) => {
           transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
           className="fixed top-[56px] sm:top-[80px] left-4 right-4 z-50 md:hidden"
         >
-          <div className="flex flex-col p-6 rounded-[24px] bg-background/90 border border-muted-foreground/15 shadow-2xl">
+          <div className="flex flex-col max-h-[calc(100dvh-72px)] sm:max-h-[calc(100dvh-96px)] overflow-y-auto overscroll-contain p-6 rounded-[24px] bg-background/90 border border-muted-foreground/15 shadow-2xl">
             <motion.nav 
               className="flex flex-col gap-3 mb-6"
               initial="closed"

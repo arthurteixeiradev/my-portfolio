@@ -4,18 +4,19 @@ export const AboutMeSection = () => {
   return (
     <div className='space-y-4'>
       <p className='text-sm sm:text-base text-muted-foreground'>
-        My name is Arthur Teixeira, and I’m a software engineer passionate about
-        turning ideas into real, beautiful, and functional applications.
+        I’m Arthur Teixeira, a fullstack developer drawn to the work behind a
+        seamless experience: clear interfaces, reliable integrations, and
+        systems that hold up in production.
       </p>
       <p className='text-sm sm:text-base text-muted-foreground'>
-        I’m currently pursuing a degree in Computer Science, which allows me to
-        explore the tech world from a broader perspective while applying
-        everything I learn directly in practice. I like to say I’m always in
-        development mode — evolving my code, my projects, and the way I see
-        technology.
+        My experience spans marketplace and ERP integrations, production
+        incident investigation, and delivering features from development through
+        deployment. I’ve led frontend development for two web platforms and
+        built a reusable component library that reduced UI development time by
+        approximately 30%.
       </p>
       <p className='text-sm sm:text-base text-muted-foreground'>
-        I work mainly with{' '}
+        My frontend toolkit combines{' '}
         <HoverCardInfo
           title='React'
           description='A JavaScript library for building user interfaces, created and maintained by Meta.'
@@ -29,6 +30,13 @@ export const AboutMeSection = () => {
           icon='https://github.com/nextjs.png'
           link='https://nextjs.org/'
         />
+        ,{' '}
+        <HoverCardInfo
+          title='TypeScript'
+          description='A programming language that extends JavaScript with static types, helping catch errors before code runs.'
+          icon='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg'
+          link='https://www.typescriptlang.org/'
+        />
         , and{' '}
         <HoverCardInfo
           title='Tailwind CSS'
@@ -36,29 +44,63 @@ export const AboutMeSection = () => {
           icon='https://github.com/tailwindcss.png'
           link='https://tailwindcss.com/'
         />
-        , and with{' '}
+        . On the backend, I work with{' '}
         <HoverCardInfo
           title='Node.js'
           description='A JavaScript runtime environment, created and maintained by Node.js Foundation.'
           icon='https://github.com/nodejs.png'
           link='https://nodejs.org/en/'
-        />{' '}
-        and{' '}
+        />
+        ,{' '}
         <HoverCardInfo
           title='Express'
           description='Fast, unopinionated, minimalist web framework for Node.js, created by @expressjs.'
           icon='https://github.com/expressjs.png'
           link='https://expressjs.com/'
+        />
+        , and{' '}
+        <HoverCardInfo
+          title='C#'
+          description='A modern, type-safe programming language for building applications on the .NET platform.'
+          icon='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg'
+          link='https://dotnet.microsoft.com/en-us/languages/csharp'
+        />
+        , using{' '}
+        <HoverCardInfo
+          title='Redis'
+          description='An in-memory data store used for caching, session management, and fast data access.'
+          icon='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg'
+          link='https://redis.io/'
         />{' '}
-        on the back end, building complete, modern, and well-structured
-        applications. I’m especially interested in design systems, software
-        architecture, user experience, and best practices that make code
-        cleaner, scalable, and easier to maintain.
+        for caching and{' '}
+        <HoverCardInfo
+          title='RabbitMQ'
+          description='A messaging broker that enables reliable, asynchronous communication between applications and services.'
+          icon='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg'
+          link='https://www.rabbitmq.com/'
+        />{' '}
+        for asynchronous messaging. I also develop real-time features with{' '}
+        <HoverCardInfo
+          title='WebSockets'
+          description='A communication protocol that keeps a connection open for bidirectional data exchange between clients and servers.'
+          icon='https://developer.mozilla.org/favicon.svg'
+          link='https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API'
+        />{' '}
+        and{' '}
+        <HoverCardInfo
+          title='Socket.IO'
+          description='A library for real-time, bidirectional communication, with automatic reconnection and transport fallback.'
+          icon='https://github.com/socketio.png'
+          link='https://socket.io/'
+        />
+        .
       </p>
       <p className='text-sm sm:text-base text-muted-foreground'>
-        I believe software development goes far beyond writing code — it’s about
-        creating experiences and solutions that connect people, ideas, and
-        technology.
+        Alongside my work, I’m pursuing a Computer Science degree at ULBRA. My
+        personal projects include Docheck, a fleet management platform spanning
+        web and mobile. Across both professional and personal projects, I care
+        about clear architecture, maintainable code, and making complex tasks
+        feel straightforward for the people using what I build.
       </p>
     </div>
   )
